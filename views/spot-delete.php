@@ -1,5 +1,5 @@
 <?php
-// 登録した観光スポットの削除
+// 投稿した観光スポットの削除
 
 // DB接続
 include_once 'dbconect.php';
