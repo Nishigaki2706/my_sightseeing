@@ -89,7 +89,6 @@ if (password_verify($_POST['password'], $result['password']))
     // 投稿データ
     $_SESSION['USER']['spots'] = array();
     $_SESSION['USER']['spots'] = $result1;
-    //['spot_name']['spot_place']['spot_date']['spot_image']['spot_thought'];
 
     echo ('<pre>');
     var_dump($_SESSION['USER']['spots']);
