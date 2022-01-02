@@ -1,12 +1,4 @@
-<?php
-if (!isset($spot_registers)) {
-    $empty['no_content'] = 'empty'; 
-}
-?>
 <div class="up-content">
-    <?php if(isset($empty['no_content']) && $empty['empty'] === 'empty') :?>
-                <p class="no-register">まだMyページが作成されていません。</p>
-    <?php endif ;?>
     <?php if(isset($spot_registers['spot_image'])):?>
         <p class="no_picture">写真が登録されていません。</p>
     <?php else:?>
