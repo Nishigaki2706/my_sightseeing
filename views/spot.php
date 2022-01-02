@@ -6,6 +6,7 @@ include_once '../config.php';
     $session_name = $_SESSION['USER']['name'];
 if (isset($_POST['ok'])) 
 {
+    // 送られてきたデータを変数に格納
     $spot_name = $_POST['spot_name'];
     $spot_place = $_POST['spot_place'];
     $spot_date = $_POST['spot_date'];
@@ -95,7 +96,7 @@ if (isset($_POST['ok']))
                 <input type="text" class="place" name="spot_name" placeholder="お気に入りスポット名" required>
                 <input type="text" class="place" name="spot_place" placeholder="どこにありましたか？" required>
                 <input type="text" class="place" name="spot_date" placeholder="いつ行きましたか？" required>
-                <input type="file" class="place" name="spot_image" placeholder="写真はありますか？" accept="image/*" >
+                <input type="file" class="place" name="spot_image" placeholder="写真はありますか？" accept="img/img-up/*" >
                 <input type="text" class="place" name="spot_thought" placeholder="どんな感じでしたか？" required>
                 <button type="submit" name="ok">完成!!</button>
             </form>
