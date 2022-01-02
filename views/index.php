@@ -6,6 +6,7 @@ $session_name = $_SESSION['USER']['name'];
 if (!$session_user) {
     header('Location:sign-in.php');
 }
+
 $spot_register = '';
 // 設定を読み込む
 include_once '../config.php';
