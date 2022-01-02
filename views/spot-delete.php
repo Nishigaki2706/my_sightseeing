@@ -34,7 +34,7 @@ $result_delete = $delete->execute();
 <body>
     <div class="spot_delete">
         <p class="comp_delete">削除が完了しました。</p>
-        <a href="home.php">ホーム画面へ</a>
+        <a href="index.php">ホーム画面へ</a>
     </div>
 </body>
 </html>

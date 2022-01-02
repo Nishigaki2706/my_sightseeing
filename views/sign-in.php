@@ -42,8 +42,8 @@ if (isset($_POST["sign-in"]))
             $_SESSION['USER'] = $result;
             // nameを取得
             $_SESSION['USER']['name'] = $result['name'];
-            // home.phpに遷移
-            header('Location: home.php');
+            // index.phpに遷移
+            header('Location: index.php');
             exit;
         }else{
             $error['miss'] = 'miss';
