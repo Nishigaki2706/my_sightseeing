@@ -631,3 +631,107 @@ header nav .menu:hover{
         margin-top: 17%;
     }
 }
+
+/* user-delete.php */
+.delete-content{
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+}
+
+.delete-content h1{
+    font-size: 2.4rem;
+}
+
+.delete-content p{
+    font-size: 1.5rem;
+}
+
+.delete-content input{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    border: solid 2px gray;
+    background-color: cadetblue;
+    width: 31%;
+    margin: auto;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+    .delete-content{
+        width: 45%;
+        margin-top: 15%;
+    }
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .delete-content{
+        width: 86%;
+        margin-top: 15%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .delete-content{
+        width: 86%;
+        margin-top: 15%;
+    }
+}
+
+/* delete-comp-user.php */
+.delete-comp{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+}
+
+.delete-comp h1{
+    font-size: 2.4rem;
+}
+
+.delete-comp p{
+    font-size: 1.5rem;
+}
+
+.delete-comp .login{
+    border: solid 2px gray;
+    background-color: cadetblue;
+    width: 31%;
+    margin: auto;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.delete-comp .login a{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 1.4rem;
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .delete-comp{
+        width: 65%;
+        margin-top: 17%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .delete-comp{
+        width: 81%;
+        margin-top: 20%;
+    }
+}

@@ -2,14 +2,14 @@
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
+// 設定を読み込む
+include_once '../config.php';
 // ログインチェック
 if (!$session_user) {
     header('Location:sign-in.php');
 }
 
 $spot_register = '';
-// 設定を読み込む
-include_once '../config.php';
 // usersテーブルとmypageテーブルを結合
 // DB接続
 include_once 'dbconect.php';
@@ -44,6 +44,7 @@ $spot_register->execute();
             <li class="side-name"><a href="#top">トップに戻る</a></li>
             <li class="side-name"><a href="spot.php">Myページを作る</a></li>
             <li class="side-name"><a href="logout.php">ログアウトする</a></li>
+            <li class="side-name"><a href="user-delete.php">退会する</a></li>
         </ul>
     </div>
     <!-- メインビジュアル -->
