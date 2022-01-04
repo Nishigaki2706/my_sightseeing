@@ -10,6 +10,6 @@
     <div class="spot-thought"><?php echo htmlspecialchars($spot_registers['spot_thought']); ?></div>
     <div class="other">
         <div class="edit"><a href="edit.php?id=<?php echo $spot_registers["id"] ;?>">編集</a></div>
-        <div class="delete"><a href="spot-delete.php?id=<?php echo $spot_registers["id"] ;?>">削除</a></div>
+        <div class="delete" id="spot-delete"><a href="spot-delete.php?id=<?php echo $spot_registers["id"] ;?>" onclick="spotDelete()">削除</a></div>
     </div>
 </div>
