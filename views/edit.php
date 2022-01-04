@@ -4,6 +4,10 @@ include_once '../config.php';
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
+// ログインチェック
+if (!$session_user) {
+    header('Location:sign-in.php');
+}
 // 設定を読み込む
 include_once '../config.php';
 // DB接続

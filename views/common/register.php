@@ -1,9 +1,5 @@
 <div class="up-content">
-    <?php if(isset($spot_registers['spot_image'])):?>
-        <p class="no_picture">写真が登録されていません。</p>
-    <?php else:?>
-        <img src="<?php echo htmlspecialchars($spot_registers['spot_file_path']); ?>" alt="">
-    <?php endif;?>
+    <img src="<?php echo htmlspecialchars($spot_registers['spot_file_path']); ?>" alt="">
     <div class="spot-name"><?php echo htmlspecialchars($spot_registers['spot_name']); ?></div>
     <div class="spot-place"><?php echo htmlspecialchars($spot_registers['spot_place']); ?></div>
     <div class="spot-date"><?php echo htmlspecialchars($spot_registers['spot_date']); ?></div>

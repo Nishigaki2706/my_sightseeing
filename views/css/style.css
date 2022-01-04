@@ -135,7 +135,7 @@ header nav .menu:hover{
 /*  メインビジュアル  */
 .bg-loop {
     position: relative;
-    width: 100vw;
+    width: 98vw;
     height: calc(100vh - 15px);
     overflow: hidden;
 }
@@ -274,14 +274,6 @@ header nav .menu:hover{
     width: 240px;
 }
 
-.content .place .no_picture{
-    font-size: 1.4rem;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 66px;
-    left: 5%;
-}
-
 .content .place img{
     width: 90%;
     padding-top: 14px;
@@ -350,7 +342,6 @@ header nav .menu:hover{
 
 .sign-up form{
     display: grid;
-    /* border-radius: 43px; */
     margin-top: 38px;
     width: 40%;
     margin: auto;
@@ -433,7 +424,6 @@ header nav .menu:hover{
     .sign-up form{
         width: 76%;
     }
-
 }
 
 /* 〜479px：スマートフォン縦
@@ -446,7 +436,6 @@ header nav .menu:hover{
     .sign-up form{
         width: 95%;
     }
-
 }
 
 /* spot.php edit.php  */
@@ -769,20 +758,23 @@ header nav .menu:hover{
     font-size: 1.4rem;
     text-align: left;
 }
+
 .user-up-content .spot-name{
     font-size: 1.4rem;
     text-align: left;
-
 }
+
 .user-up-content .spot-place{
     font-size: 1.4rem;
     text-align: left;
 }
+
 .user-up-content .spot-date{
     font-size: 1.4rem;
     margin-bottom: 15px;
     text-align: left;
 }
+
 .user-up-content .spot-thought{
     font-size: 1rem;
     margin-bottom: 20px;

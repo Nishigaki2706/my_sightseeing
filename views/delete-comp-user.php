@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <?php include_once('../views/common/head.php'); ?>
     <title>My観光ページ/退会完了画面</title>

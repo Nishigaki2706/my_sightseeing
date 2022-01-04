@@ -67,7 +67,7 @@ if (isset($_POST["sign-in"]))
             <?php if(!empty($error['miss']) && $error['miss'] === 'miss'):?>
                 <p class="error">メールアドレスまたはパスワードが間違っています。</p>
             <?php endif;?>
-            <input type="mail" class="register" name="email" placeholder="メールアドレスを入力してください" maxlength="228">
+            <input type="mail" class="register" name="email" placeholder="メールアドレスを入力してください">
             <?php if(!empty($error['email']) && $error['email'] === 'blank') :?>
                 <p class="error">メールアドレスを入力してください。</p>
             <?php endif ;?>

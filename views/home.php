@@ -8,8 +8,6 @@ include_once '../config.php';
 if (!$session_user) {
     header('Location:sign-in.php');
 }
-
-$spot_register = '';
 // usersテーブルとmypageテーブルを結合
 // DB接続
 include_once 'dbconect.php';

@@ -1,6 +1,10 @@
 <?php
 // 投稿した観光スポットの削除
 
+// ログインチェック
+if (!$session_user) {
+    header('Location:sign-in.php');
+}
 // DB接続
 include_once 'dbconect.php';
 // ディレクトリのファイル削除

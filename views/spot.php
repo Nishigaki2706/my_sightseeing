@@ -1,9 +1,13 @@
 <?php
 // 設定読み込み
 include_once '../config.php';
-    session_start();
-    $session_user = $_SESSION['USER'];
-    $session_name = $_SESSION['USER']['name'];
+session_start();
+$session_user = $_SESSION['USER'];
+$session_name = $_SESSION['USER']['name'];
+// ログインチェック
+if (!$session_user) {
+    header('Location:sign-in.php');
+}
 if (isset($_POST['ok'])) 
 {
     // 送られてきたデータを変数に格納
@@ -24,7 +28,7 @@ if (isset($_POST['ok']))
     // ファイルパス
     $save_path = $upload_dir . $date_filename;
     // ファイルのバリデーション
-    // ファイルサイズが1MB未満か
+    // ファイルサイズが5MB未満か
     if($filesize > 5242880 || $file_err == 2){
     echo 'ファイルサイズは5MB未満にしてください。';
     echo "<br>";
