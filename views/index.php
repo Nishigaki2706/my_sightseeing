@@ -43,6 +43,7 @@ $spot_register->execute();
         <ul class="side">
             <li class="side-name"><a href="#top">トップに戻る</a></li>
             <li class="side-name"><a href="spot.php">Myページを作る</a></li>
+            <li class="side-name"><a href="all-user-spot.php">全てのユーザーの投稿</a></li>
             <li class="side-name"><a href="logout.php">ログアウトする</a></li>
             <li class="side-name"><a href="user-delete.php">退会する</a></li>
         </ul>

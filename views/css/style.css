@@ -735,3 +735,80 @@ header nav .menu:hover{
         margin-top: 20%;
     }
 }
+
+/* all-user-register.php */
+
+.all-user-content{
+    margin-top: 10%;
+}
+.all-user-place{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1415px;
+    justify-content: center;
+}
+.user-up-content{
+    border: solid 3px gray;
+    margin: 7px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    width: 240px;
+}
+
+.user-up-content img{
+    width: 90%;
+    padding-top: 14px;
+    height: 149px;
+    padding-bottom: 14px;
+}
+
+.user-up-content .spot-user{
+    font-size: 1.4rem;
+    text-align: left;
+}
+.user-up-content .spot-name{
+    font-size: 1.4rem;
+    text-align: left;
+
+}
+.user-up-content .spot-place{
+    font-size: 1.4rem;
+    text-align: left;
+}
+.user-up-content .spot-date{
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.user-up-content .spot-thought{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+    .all-user-content{
+        margin-top: 10%;
+    }
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .all-user-content{
+        margin-top: 17%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .all-user-content{
+        margin-top: 20%;
+    }
+}
