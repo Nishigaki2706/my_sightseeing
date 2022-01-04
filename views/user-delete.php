@@ -43,7 +43,6 @@ if (isset($_POST['withdrawal'])) {
     // 画面遷移
     header('Location:delete-comp-user.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">

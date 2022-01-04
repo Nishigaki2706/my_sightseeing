@@ -60,7 +60,7 @@ if (isset($_POST['ok']))
                 if ($result === true) 
                 {
                 // ホーム画面に遷移
-                header('Location: index.php');
+                header('Location: home.php');
                 exit;
                 }
         }
@@ -86,7 +86,7 @@ if (isset($_POST['ok']))
         <!-- サイドバー -->
         <div class="side-ber">
             <ul class="side">
-                <li class="side-name"><a href="index.php">ホームに戻る</a></li>
+                <li class="side-name"><a href="home.php">ホームに戻る</a></li>
                 <li class="side-name"><a href="logout.php">ログアウトする</a></li>
             </ul>
         </div>

@@ -36,7 +36,7 @@ $all_spot_register->execute();
     <div class="side-ber">
         <ul class="side">
             <li class="side-name"><a href="spot.php">Myページを作る</a></li>
-            <li class="side-name"><a href="index.php">myページに戻る</a></li>
+            <li class="side-name"><a href="home.php">myページに戻る</a></li>
             <li class="side-name"><a href="logout.php">ログアウトする</a></li>
         </ul>
     </div>

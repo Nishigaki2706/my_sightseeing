@@ -72,7 +72,7 @@ if (isset($_POST['ok']))
         $query->bindValue(":id", $id, PDO::PARAM_STR);
         // SQL実行
         $edited = $query->execute();
-        header('Location: index.php');
+        header('Location: home.php');
         }
     }
 }
@@ -91,7 +91,7 @@ if (isset($_POST['ok']))
     <!-- サイドバー -->
     <div class="side-ber">
         <ul class="side">
-            <li class="side-name"><a href="index.php">ホームに戻る</a></li>
+            <li class="side-name"><a href="home.php">ホームに戻る</a></li>
             <li class="side-name"><a href="logout.php">ログアウトする</a></li>
         </ul>
     </div>
