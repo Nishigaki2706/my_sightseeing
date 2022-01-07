@@ -19,5 +19,3 @@ HTML / CSS / PHP / JavaScript / MySQL
 ・投稿内容削除機能
 ・退会機能
 
-
-
