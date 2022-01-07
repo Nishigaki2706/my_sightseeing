@@ -1,0 +1,806 @@
+body{
+    background-color: rgb(70, 62, 62);
+    color: antiquewhite;
+    margin: 0;
+}
+
+.container{
+    margin: 0;
+    padding: 0rem;
+    max-width: 100%;
+    height: 100%;
+}
+/* ヘッダー  */
+header{
+    padding-top: 6px;
+    width: 100%;
+    position: fixed;
+    background-color: rgb(70,62,62);
+    z-index: 7;
+    height: 54px;
+    top: 0;
+    border-bottom: solid 3px gray;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .head nav .menu{
+    /* display: flex; */
+    width: 69px;
+    float: left;
+    padding-top: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: 13px;
+    margin-left: 49px;
+    z-index: 4;
+}
+
+header .head .left{
+    float: left;
+}
+
+header .head .user_name{
+    margin-top: 21px;
+    padding-right: 30px;
+}
+
+header nav .menu:hover{
+    cursor: pointer;
+}
+
+.title{
+    font-size: 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width: 480px) and (max-width: 599px) { 
+    header{
+        height: 60px;
+    }
+    
+    header .head nav .menu{
+        margin-top: 28px;
+    }
+    header .head .user_name{
+        padding-right: 14px;
+        margin-top: 36px;
+    }
+}
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    header{
+        height: 60px;
+    }
+    
+    header .head nav .menu{
+        margin-top: 28px;
+    }
+
+    header .head .user_name{
+        margin-top: 36px;
+        padding-right: 14px;
+    }
+}
+/*  サイドバー  */
+.side-ber{
+    height: 100%;
+    width: 190px;
+    position: fixed;
+    z-index: 5;
+    /* margin-top: 56px; */
+    top: 60px;
+}
+
+.side{
+    padding-left: 0;
+    margin-top: 0;
+    width: 190px;
+    height: 100%;
+    background: linear-gradient(270deg, #463e3e 0%, antiquewhite);
+    opacity: 0.88;
+}
+
+.side :hover{
+    cursor: pointer;
+}
+
+.side .side-name{
+    list-style: none;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.side .side-name a {
+    color: antiquewhite;
+    text-decoration: none;
+    border-bottom: solid 2px;
+}    
+
+@media screen and (max-width:1200){
+    body{
+        margin: auto;
+    }
+}
+
+/*  メインビジュアル  */
+.bg-loop {
+    position: relative;
+    width: 98vw;
+    height: calc(100vh - 15px);
+    overflow: hidden;
+}
+.bg-loop::before,
+.bg-loop::after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    width: 415vw;
+    height: 100%;
+    background-image:
+        url("../img/main-img/20210411-_1012997_TP_V.jpg"),
+        url("../img/main-img/heriyakei419179_TP_V.jpg"),
+        url("../img/main-img/085AME0226_TP_V.jpg"),
+        url("../img/main-img/KUMAKICHI1027539_TP_V.jpg");
+    background-repeat: no-repeat;
+    background-position: top 0px left 0vw,
+        top 0px left 100vw,
+        top 0px left 200vw,
+        top 0px left 300vw;
+    background-size: calc(100vw + 1px) 100%;
+    content: "";
+}
+.bg-loop::before {
+    animation: loop_400vw_1 50s linear infinite;
+}
+.bg-loop::after {
+    left: -1px;
+    right: 1px;
+    animation: loop_400vw_2 50s linear infinite;
+}
+
+@keyframes loop_400vw_1 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-400vw);
+    }
+}
+@keyframes loop_400vw_2 {
+    0% {
+        transform: translateX(400vw);
+    }
+    100% {
+        transform: translateX(0vw);
+    }
+}
+@keyframes loop_200vw_1 {
+    0% {
+        transform: translateX(0vw);
+    }
+    100% {
+        transform: translateX(-200vw);
+    }
+}
+@keyframes loop_200vw_2 {
+    0% {
+        transform: translateX(200vw);
+    }
+    100% {
+        transform: translateX(0vw);
+    }
+}
+@keyframes loop_100vw_1 {
+    0% {
+        transform: translateX(0vw);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+@keyframes loop_100vw_2 {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(0vw);
+    }
+}
+
+
+/*  ホーム画面  */
+.sample{
+    font-size: 2rem;    
+    margin-top: 30px;
+    border-bottom: solid 3px gray;
+    text-align: center;
+}
+
+.content{
+    margin: auto;
+    margin-bottom: 200px;
+}
+
+.content .no-register {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 40px;
+}
+
+.content .place{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1415px;
+    justify-content: center;
+}
+
+.content .place .no_posts{
+    border: solid 3px gray;
+    margin: 7px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    width: 240px;
+}
+
+.content .place .no_posts .add{
+    font-size: 1.4rem;
+    width: 70%;
+    margin: auto;
+    margin-top: 58%;
+    margin-bottom: 79%;
+}
+
+.up-content{
+    border: solid 3px gray;
+    margin: 7px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    width: 240px;
+}
+
+.content .place img{
+    width: 90%;
+    padding-top: 14px;
+    height: 149px;
+    padding-bottom: 14px;
+}
+
+.content .place .spot-name{
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+.content .place .spot-place{
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+.content .place .spot-date{
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.content .place .spot-thought{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.content .place .up-content .other{
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+}
+
+.content .place .other .edit {
+    font-size: 1rem;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.content .place .other .edit a{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.content .place .other .delete{
+    font-size: 1rem;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.content .place .other .delete a{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+/* sign-up.php sign-in.php */
+
+.sign-up{
+    text-align: center;
+    margin: auto;
+    margin-top: 8%;
+    width: 100%;
+}
+
+.sign-up form{
+    display: grid;
+    margin-top: 38px;
+    width: 40%;
+    margin: auto;
+}
+
+.sign-up form .register{
+    margin-top: 31px;
+    font-size: larger;
+    border-radius: 6px;
+}
+
+.sign-up form .error{
+    color: red;
+    text-align: center;
+    margin-top: 0;
+}
+
+.sign-up form button{
+    border: solid 2px gray;
+    background: cadetblue;
+    width: 130px;
+    margin: auto;
+    margin-top: 26px;
+    border-radius: 6px;
+    padding-top: 10px;
+    padding: 10px 0;
+    color: antiquewhite;
+    font-size: 1.3rem;
+}
+
+.sign-up form button a{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 1rem;
+}
+
+.sign-up a{
+    border: solid 2px gray;
+    background-color: cadetblue;
+    text-decoration: none;
+    color: antiquewhite;
+    width: 130px;
+    margin: auto;
+    padding: 10px 0;
+}
+
+/* 960px〜1279px：小型PC
+------------------------------ */
+@media screen and (min-width:960px) and (max-width:1279px) {
+    .sign-up{
+        width: 42%;
+    }
+
+    .sign-up form{
+        width: 61%;
+    }
+
+}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+    .sign-up{
+        width: 67%;
+    }
+
+    .sign-up form{
+        width: 68%;
+    }
+
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .sign-up{
+        width: 70%;
+    }
+
+    .sign-up form{
+        width: 76%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .sign-up{
+        width: 70%;
+    }
+
+    .sign-up form{
+        width: 95%;
+    }
+}
+
+/* spot.php edit.php  */
+
+.create-page {
+    margin: auto;
+    width: 83%;
+}
+
+.create-page form {
+    display: block;
+    width: 350px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    border: solid 3px gray;
+}
+
+.create-page form h1{
+    margin-bottom: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.create-page form input{
+    width: 91%;
+    max-width: 100%;
+    margin: 10px;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.create-page form textarea{
+    width: 88%;
+    margin: 10px;
+    border-radius: 6px;
+    resize: none;
+}
+
+.create-page form button{
+    width: 24%;
+    margin-top: 20px;
+    background: cadetblue;
+    border-radius: 6px;
+    margin-left: 126px;
+}
+
+.create-page form button a {
+    color: antiquewhite;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* ログアウト画面 */
+
+.logout{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.logout .logout_title{
+    font-size: 2.5rem;
+    margin-top: 10%;
+}
+.logout h1{
+    margin-top: 40px;
+}
+
+.logout h2{
+    margin-top: 30px;
+}
+
+.logout .login{
+    border: solid 2px gray;
+    background-color: cadetblue;
+    width: 31%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.logout .login a{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 1.2rem;
+}
+
+/* 960px〜1279px：小型PC
+------------------------------ */
+@media screen and (min-width:960px) and (max-width:1279px) {
+    .logout{
+        width: 27%;
+        margin-top: 6%;
+    }
+}
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+    .logout{
+        width: 37%;
+        margin-top: 9%;
+    }
+}
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .logout{
+        width: 57%;
+        margin-top: 15%;
+    }
+}
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .logout{
+        width: 87%;
+        margin-top: 30%;
+    }
+}
+
+/* spot_delete.php */
+
+.spot_delete{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.spot_delete .comp_delete{
+    font-size: 1.4rem;
+}
+
+.spot_delete a{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    border: solid 2px gray;
+    background-color: cadetblue;
+    width: 31%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* 960px〜1279px：小型PC
+------------------------------ */
+@media screen and (min-width:960px) and (max-width:1279px) {
+    .spot_delete{
+        width: 30%;
+        margin-top: 8%;
+    }
+}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+    .spot_delete{
+        width: 30%;
+        margin-top: 11%;
+    }
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .spot_delete{
+        width: 50%;
+        margin-top: 11%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .spot_delete{
+        width: 50%;
+        margin-top: 17%;
+    }
+}
+
+/* user-delete.php */
+.delete-content{
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+}
+
+.delete-content h1{
+    font-size: 2.4rem;
+}
+
+.delete-content p{
+    font-size: 1.5rem;
+}
+
+.delete-content input{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    border: solid 2px gray;
+    background-color: cadetblue;
+    width: 31%;
+    margin: auto;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+    .delete-content{
+        width: 45%;
+        margin-top: 15%;
+    }
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .delete-content{
+        width: 86%;
+        margin-top: 15%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .delete-content{
+        width: 86%;
+        margin-top: 15%;
+    }
+}
+
+/* delete-comp-user.php */
+.delete-comp{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+}
+
+.delete-comp h1{
+    font-size: 2.4rem;
+}
+
+.delete-comp p{
+    font-size: 1.5rem;
+}
+
+.delete-comp .login{
+    border: solid 2px gray;
+    background-color: cadetblue;
+    width: 31%;
+    margin: auto;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.delete-comp .login a{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 1.4rem;
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .delete-comp{
+        width: 65%;
+        margin-top: 17%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .delete-comp{
+        width: 81%;
+        margin-top: 20%;
+    }
+}
+
+/* all-user-register.php */
+
+.all-user-content{
+    margin-top: 10%;
+}
+.all-user-place{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1415px;
+    justify-content: center;
+}
+.user-up-content{
+    border: solid 3px gray;
+    margin: 7px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    width: 240px;
+}
+
+.user-up-content img{
+    width: 90%;
+    padding-top: 14px;
+    height: 149px;
+    padding-bottom: 14px;
+}
+
+.user-up-content .spot-user{
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+.user-up-content .spot-name{
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+.user-up-content .spot-place{
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+.user-up-content .spot-date{
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.user-up-content .spot-thought{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+    .all-user-content{
+        margin-top: 10%;
+    }
+}
+
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    .all-user-content{
+        margin-top: 17%;
+    }
+}
+
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    .all-user-content{
+        margin-top: 20%;
+    }
+}
