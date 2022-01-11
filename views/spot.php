@@ -22,7 +22,7 @@ if (isset($_POST['ok']))
     $file_err = $spot_image['error'];
     $filesize = $spot_image['size'];
     // アップロードするディレクトを決める
-    $upload_dir = 'img/img-up/';
+    $upload_dir = 'views/img/img-up/';
     // ファイル名に日付を含める
     $date_filename = date('YmdHis'). $filename;
     // ファイルパス
