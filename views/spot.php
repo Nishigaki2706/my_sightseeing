@@ -4,6 +4,11 @@ include_once '../config.php';
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 // ログインチェック
 if (!$session_user) {
     header('Location:sign-in.php');
@@ -16,13 +21,13 @@ if (isset($_POST['ok']))
     $spot_date = $_POST['spot_date'];
     $spot_image = $_FILES['spot_image'];
     $spot_thought = $_POST['spot_thought'];
-    // 画像ファイル('spot_image)の中身のデータを取得
+    // 画像ファイル(spot_image)の中身のデータを取得
     $filename = basename($spot_image['name']);
     $tmp_path = $spot_image['tmp_name'];
     $file_err = $spot_image['error'];
     $filesize = $spot_image['size'];
     // アップロードするディレクトを決める
-    $upload_dir = 'views/img/img-up/';
+    $upload_dir = 'C:/xampp/htdocs/sightseeing/views/img/img-up/';
     // ファイル名に日付を含める
     $date_filename = date('YmdHis'). $filename;
     // ファイルパス

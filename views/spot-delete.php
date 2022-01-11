@@ -1,6 +1,8 @@
 <?php
 // 投稿した観光スポットの削除
-
+session_start();
+$session_user = $_SESSION['USER'];
+$session_name = $_SESSION['USER']['name'];
 // ログインチェック
 if (!$session_user) {
     header('Location:sign-in.php');
