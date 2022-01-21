@@ -1,5 +1,5 @@
 <div class="up-content">
-    <img src="<?php echo htmlspecialchars($spot_registers['spot_file_path']); ?>" alt="">
+    <img src= "data:image/jpg;data:image/jpeg;data:image/png;base64,<?php echo $spot_registers['spot_file_path'] ;?>">
     <div class="spot-name"><?php echo htmlspecialchars($spot_registers['spot_name']); ?></div>
     <div class="spot-place"><?php echo htmlspecialchars($spot_registers['spot_place']); ?></div>
     <div class="spot-date"><?php echo htmlspecialchars($spot_registers['spot_date']); ?></div>

@@ -1,3 +1,4 @@
+<!-- 退会完了画面 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>

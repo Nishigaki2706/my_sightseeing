@@ -22,7 +22,7 @@ if (isset($_POST['withdrawal'])) {
     // 削除したいデータ取得
     $dir_delete_result = $dir_delete->fetch();
     // 削除したいディレクトリファイルを削除
-    unlink($dir_delete_result['spot_file_path']);
+    unlink($dir_delete_result['spot_dir_path']);
 
     //投稿削除
     // SQL文セット

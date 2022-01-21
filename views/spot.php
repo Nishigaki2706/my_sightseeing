@@ -4,11 +4,6 @@ include_once '../config.php';
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
 // ログインチェック
 if (!$session_user) {
     header('Location:sign-in.php');
@@ -26,6 +21,10 @@ if (isset($_POST['ok']))
     $tmp_path = $spot_image['tmp_name'];
     $file_err = $spot_image['error'];
     $filesize = $spot_image['size'];
+    // base64エンコード化して$img_srcに格納
+    $file_img = $_FILES['spot_image']['tmp_name'];
+    $img_data = base64_encode(file_get_contents($file_img));
+    $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
     // アップロードするディレクトを決める
     $upload_dir = 'C:/xampp/htdocs/sightseeing/views/img/img-up/';
     // ファイル名に日付を含める
@@ -35,8 +34,8 @@ if (isset($_POST['ok']))
     // ファイルのバリデーション
     // ファイルサイズが5MB未満か
     if($filesize > 5242880 || $file_err == 2){
-    echo 'ファイルサイズは5MB未満にしてください。';
-    echo "<br>";
+        echo 'ファイルサイズは5MB未満にしてください。';
+        echo "<br>";
     }
     // 拡張子は画像形式か
     $check_ext = array('jpg', 'jpeg', 'png');
@@ -54,7 +53,7 @@ if (isset($_POST['ok']))
             // DB接続
             include_once 'dbconect.php';
             // SQL文セット
-            $query = $pdo->prepare("INSERT INTO mypage(user_id, user_name, spot_name, spot_place, spot_date, file_name, spot_file_path, spot_thought)VALUES(:user_id, :user_name, :spot_name, :spot_place, :spot_date, :file_name, :spot_file_path, :spot_thought)");
+            $query = $pdo->prepare("INSERT INTO mypage(user_id, user_name, spot_name, spot_place, spot_date, file_name, spot_file_path, spot_dir_path, spot_thought)VALUES(:user_id, :user_name, :spot_name, :spot_place, :spot_date, :file_name, :spot_file_path, :spot_dir_path, :spot_thought)");
             // プレースホルダーに値セット
             $query->bindValue(":user_id", $session_user['user_id'], PDO::PARAM_STR);
             $query->bindValue(":user_name", $session_user['name'], PDO::PARAM_STR);
@@ -62,7 +61,8 @@ if (isset($_POST['ok']))
             $query->bindValue(":spot_place", $spot_place, PDO::PARAM_STR);
             $query->bindValue(":spot_date", $spot_date, PDO::PARAM_STR);
             $query->bindValue(":file_name", $filename, PDO::PARAM_STR);
-            $query->bindValue(":spot_file_path", $save_path, PDO::PARAM_STR);
+            $query->bindValue(":spot_file_path", $img_data, PDO::PARAM_STR);
+            $query->bindValue(":spot_dir_path", $save_path, PDO::PARAM_STR);
             $query->bindValue(":spot_thought", $spot_thought, PDO::PARAM_STR);
             // SQL実行
             $result = $query->execute();
@@ -76,10 +76,7 @@ if (isset($_POST['ok']))
     }else{
         echo 'エラーです。';
     }
-}else{
-    echo 'エラー';
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">

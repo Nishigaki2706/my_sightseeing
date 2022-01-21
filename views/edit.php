@@ -25,24 +25,27 @@ $result = $spot_registered->fetch();
 // 編集完了ボタンが押された場合
 if (isset($_POST['ok'])) 
 {
+    // 送信されたデータを変数に格納
     $spot_name = $_POST['spot_name'];
     $spot_place = $_POST['spot_place'];
     $spot_date = $_POST['spot_date'];
     $spot_image = $_FILES['spot_image'];
     $spot_thought = $_POST['spot_thought'];
-
     // ファイルの中身のデータを取得
     $filename = basename($spot_image['name']);
     $tmp_path = $spot_image['tmp_name'];
     $file_err = $spot_image['error'];
     $filesize = $spot_image['size'];
+    // base64エンコード化して$img_srcに格納
+    $file_img = $_FILES['spot_image']['tmp_name'];
+    $img_data = base64_encode(file_get_contents($file_img));
+    $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
     // アップロードするディレクトを決める
     $upload_dir = 'img/img-up/';
     // ファイル名に日付を含める
     $date_filename = date('YmdHis'). $filename;
     // ファイルパス
     $save_path = $upload_dir . $date_filename;
-
     // ファイルのバリデーション
     // ファイルサイズが1MB未満か
     if($filesize > 5242880 || $file_err == 2){
@@ -65,13 +68,14 @@ if (isset($_POST['ok']))
         // DB接続
         include_once 'dbconect.php';
         // SQL文セット
-        $query = $pdo->prepare("UPDATE mypage SET spot_name = :spot_name, spot_place =:spot_place, spot_date =:spot_date, file_name =:file_name, spot_file_path =:spot_file_path, spot_thought =:spot_thought, updated_at=NOW() WHERE id =:id");
+        $query = $pdo->prepare("UPDATE mypage SET spot_name = :spot_name, spot_place =:spot_place, spot_date =:spot_date, file_name =:file_name, spot_file_path =:spot_file_path ,spot_dir_path =:spot_dir_path, spot_thought =:spot_thought, updated_at=NOW() WHERE id =:id");
         // プレースホルダーに値セット
         $query->bindValue(":spot_name", $spot_name, PDO::PARAM_STR);
         $query->bindValue(":spot_place", $spot_place, PDO::PARAM_STR);
         $query->bindValue(":spot_date", $spot_date, PDO::PARAM_STR);
         $query->bindValue(":file_name", $filename, PDO::PARAM_STR);
-        $query->bindValue(":spot_file_path", $save_path, PDO::PARAM_STR);
+        $query->bindValue(":spot_file_path", $img_data, PDO::PARAM_STR);
+        $query->bindValue(":spot_dir_path", $save_path, PDO::PARAM_STR);
         $query->bindValue(":spot_thought", $spot_thought, PDO::PARAM_STR);
         $query->bindValue(":id", $id, PDO::PARAM_STR);
         // SQL実行
@@ -80,7 +84,6 @@ if (isset($_POST['ok']))
         }
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
