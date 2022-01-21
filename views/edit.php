@@ -41,7 +41,7 @@ if (isset($_POST['ok']))
     $img_data = base64_encode(file_get_contents($file_img));
     $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
     // アップロードするディレクトを決める
-    $upload_dir = 'img/img-up/';
+    $upload_dir = '/tmp';
     // ファイル名に日付を含める
     $date_filename = date('YmdHis'). $filename;
     // ファイルパス
@@ -63,8 +63,6 @@ if (isset($_POST['ok']))
     }
     if(is_uploaded_file($tmp_path)) 
     {
-        if(move_uploaded_file($tmp_path, $save_path))
-        {
         // DB接続
         include_once 'dbconect.php';
         // SQL文セット
@@ -81,7 +79,6 @@ if (isset($_POST['ok']))
         // SQL実行
         $edited = $query->execute();
         header('Location: home.php');
-        }
     }
 }
 ?>

@@ -2,15 +2,6 @@
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
-
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
 // 設定を読み込む
 include_once '../config.php';
 // ログインチェック

@@ -4,14 +4,6 @@ include_once '../config.php';
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
 // ログインチェック
 if (!$session_user) {
     header('Location:sign-in.php');
@@ -58,28 +50,28 @@ if (isset($_POST['ok']))
     }
     if(is_uploaded_file($tmp_path)) 
     {
-            // DB接続
-            include_once 'dbconect.php';
-            // SQL文セット
-            $query = $pdo->prepare("INSERT INTO mypage(user_id, user_name, spot_name, spot_place, spot_date, file_name, spot_file_path, spot_dir_path, spot_thought)VALUES(:user_id, :user_name, :spot_name, :spot_place, :spot_date, :file_name, :spot_file_path, :spot_dir_path, :spot_thought)");
-            // プレースホルダーに値セット
-            $query->bindValue(":user_id", $session_user['user_id'], PDO::PARAM_STR);
-            $query->bindValue(":user_name", $session_user['name'], PDO::PARAM_STR);
-            $query->bindValue(":spot_name", $spot_name, PDO::PARAM_STR);
-            $query->bindValue(":spot_place", $spot_place, PDO::PARAM_STR);
-            $query->bindValue(":spot_date", $spot_date, PDO::PARAM_STR);
-            $query->bindValue(":file_name", $filename, PDO::PARAM_STR);
-            $query->bindValue(":spot_file_path", $img_data, PDO::PARAM_STR);
-            $query->bindValue(":spot_dir_path", $save_path, PDO::PARAM_STR);
-            $query->bindValue(":spot_thought", $spot_thought, PDO::PARAM_STR);
-            // SQL実行
-            $result = $query->execute();
-                if ($result === true) 
-                {
-                // ホーム画面に遷移
-                header('Location: home.php');
-                exit;
-                }
+        // DB接続
+        include_once 'dbconect.php';
+        // SQL文セット
+        $query = $pdo->prepare("INSERT INTO mypage(user_id, user_name, spot_name, spot_place, spot_date, file_name, spot_file_path, spot_dir_path, spot_thought)VALUES(:user_id, :user_name, :spot_name, :spot_place, :spot_date, :file_name, :spot_file_path, :spot_dir_path, :spot_thought)");
+        // プレースホルダーに値セット
+        $query->bindValue(":user_id", $session_user['user_id'], PDO::PARAM_STR);
+        $query->bindValue(":user_name", $session_user['name'], PDO::PARAM_STR);
+        $query->bindValue(":spot_name", $spot_name, PDO::PARAM_STR);
+        $query->bindValue(":spot_place", $spot_place, PDO::PARAM_STR);
+        $query->bindValue(":spot_date", $spot_date, PDO::PARAM_STR);
+        $query->bindValue(":file_name", $filename, PDO::PARAM_STR);
+        $query->bindValue(":spot_file_path", $img_data, PDO::PARAM_STR);
+        $query->bindValue(":spot_dir_path", $save_path, PDO::PARAM_STR);
+        $query->bindValue(":spot_thought", $spot_thought, PDO::PARAM_STR);
+        // SQL実行
+        $result = $query->execute();
+            if ($result === true) 
+            {
+            // ホーム画面に遷移
+            header('Location: home.php');
+            exit;
+            }
         
     }else{
         echo 'エラーです。';
