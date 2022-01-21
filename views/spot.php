@@ -58,8 +58,6 @@ if (isset($_POST['ok']))
     }
     if(is_uploaded_file($tmp_path)) 
     {
-        if(move_uploaded_file($tmp_path, $save_path))
-        {
             // DB接続
             include_once 'dbconect.php';
             // SQL文セット
@@ -82,7 +80,7 @@ if (isset($_POST['ok']))
                 header('Location: home.php');
                 exit;
                 }
-        }
+        
     }else{
         echo 'エラーです。';
     }
