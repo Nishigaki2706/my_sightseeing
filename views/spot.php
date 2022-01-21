@@ -32,7 +32,7 @@ if (isset($_POST['ok']))
     // base64エンコード化して$img_srcに格納
     $file_img = $_FILES['spot_image']['tmp_name'];
     // $img_data = base64_encode(file_get_contents($file_img));
-    $img_data = base64_encode(file_get_contents($request->spot_image->getRealPath()));
+    $img_data = base64_encode(file_get_contents($file_img));
     $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
     // アップロードするディレクトを決める
     // $upload_dir = 'C:/xampp/htdocs/sightseeing/views/img/img-up/';
