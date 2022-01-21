@@ -4,6 +4,14 @@ include_once '../config.php';
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 // ログインチェック
 if (!$session_user) {
     header('Location:sign-in.php');
