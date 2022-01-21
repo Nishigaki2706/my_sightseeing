@@ -1,4 +1,7 @@
 <?php
+//////////////////////////////////
+// ホーム画面
+//////////////////////////////////
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
@@ -15,7 +18,6 @@ include_once 'dbconect.php';
 $spot_register = $pdo->prepare("SELECT * FROM users U INNER JOIN mypage M ON U.user_id = M.user_id");
 // SQL実行
 $spot_register->execute();
-
 // user_idから投稿内容を取得
 // DB接続
 include_once 'dbconect.php';

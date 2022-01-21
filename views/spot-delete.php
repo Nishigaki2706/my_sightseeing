@@ -1,4 +1,7 @@
 <?php
+//////////////////////////////////
+// 投稿削除画面
+//////////////////////////////////
 // 投稿した観光スポットの削除
 session_start();
 $session_user = $_SESSION['USER'];
@@ -29,7 +32,6 @@ $delete->bindValue("id", $_GET["id"]);
 // SQL実行
 $result_delete = $delete->execute();
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>

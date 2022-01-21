@@ -1,4 +1,7 @@
 <?php
+//////////////////////////////////
+// 退会画面
+//////////////////////////////////
 // 設定読み込み
 include_once '../config.php';
 session_start();
@@ -11,7 +14,7 @@ if (!$session_user) {
 if (isset($_POST['withdrawal'])) {
     // DB接続
     include_once 'dbconect.php';
-
+    
     // ディレクトリのファイル削除
     // SQL文セット
     $dir_delete = $pdo->prepare("SELECT * FROM mypage WHERE user_id =:user_id");

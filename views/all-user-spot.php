@@ -1,4 +1,7 @@
 <?php
+//////////////////////////////////
+// 全ユーザーの投稿を見れる画面
+//////////////////////////////////
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];

@@ -1,8 +1,10 @@
 <?php
+//////////////////////////////////
+// ログアウト画面
+//////////////////////////////////
 session_start();
 $_SESSION = array();
 session_destroy();
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
