@@ -106,7 +106,7 @@ if (isset($_POST['ok']))
                 <input type="text" class="place" name="spot_name" value="<?php echo htmlspecialchars($result['spot_name']); ?>">
                 <input type="text" class="place" name="spot_place" value="<?php echo htmlspecialchars($result['spot_place']);?>">
                 <input type="text" class="place" name="spot_date" value="<?php echo htmlspecialchars($result['spot_date']);?>">
-                <input type="file" class="place" name="spot_image" value="<?php echo htmlspecialchars($result['spot_image']);?>">
+                <input type="file" class="place" name="spot_image" value="<?php echo $result['spot_dir_path'];?>">
                 <input type="text" class="place" name="spot_thought" value="<?php echo htmlspecialchars($result['spot_thought']);?>">
                 <button type="submit" name="ok">編集完了</button>
             </form>
