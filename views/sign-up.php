@@ -4,6 +4,12 @@
 //////////////////////////////////
 session_start();
 
+// 環境変数設定
+$host = getenv('DB_HOST');
+$name = getenv('DB_NAME');
+$password = getenv('DB_PASSWORD');
+$user = getenv('DB_USER');
+
 if (isset($_POST["sign-up"])) 
 {
     $name = $_POST["name"];
@@ -27,7 +33,7 @@ if (isset($_POST["sign-up"]))
     // メールアドレス重複チェック
     try {
         // DB接続
-        $check_pdo = new PDO('mysql:dbname=heroku_252793a2f4f9597;host=us-cdbr-east-05.cleardb.net;' , 'b73dd47eda3ad6' , 'f90edf03');
+        $check_pdo = new PDO('mysql:dbname='. $name .';host='. $host .';' , $user , $password);
     } catch (PDOException $e) {
         $msg = $e->getMessage();
     }
