@@ -6,8 +6,6 @@ my_sightseeing
 ## デモ
 [Webサイトを見る](https://my-sightseeing-app.herokuapp.com/views/sign-in.php)
 
-TODO デプロイが完了後　スクリーンショットでここに写真を追加。
-
 ## 利用している技術
 HTML / CSS / PHP / JavaScript / MySQL
 
@@ -18,4 +16,7 @@ HTML / CSS / PHP / JavaScript / MySQL
 ・全ユーザーの投稿を見ることができる機能
 ・投稿内容削除機能
 ・退会機能
+
+## 改善点
+Laravelをまだ未学習のため使っておらず可読性が低いところ、また関数について完璧に理解できていないためコードが長くなってしまっているところが改善点です。
 
