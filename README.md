@@ -1,7 +1,7 @@
 my_sightseeing
 ===
 
-過去にWebサイト利用者が行った観光地を投稿し保存しておくポートフォリオです。
+過去にWebサイト利用者が行った観光地を思い出として投稿し記録しておくポートフォリオです。
 
 ## デモ
 [Webサイトを見る](https://my-sightseeing-app.herokuapp.com/views/sign-in.php)
