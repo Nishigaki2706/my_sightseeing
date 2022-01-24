@@ -4,6 +4,7 @@
 //////////////////////////////////
 // 設定読み込み
 include_once '../config.php';
+ini_set("display_errors", 0);
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
@@ -11,6 +12,7 @@ $session_name = $_SESSION['USER']['name'];
 if (!$session_user) {
     header('Location:sign-in.php');
 }
+// 完成ボタンが押された場合
 if (isset($_POST['ok'])) 
 {
     // 送られてきたデータを変数に格納
@@ -19,15 +21,44 @@ if (isset($_POST['ok']))
     $spot_date = $_POST['spot_date'];
     $spot_image = $_FILES['spot_image'];
     $spot_thought = $_POST['spot_thought'];
+    // バリデーション
+    // 名前が入力されていない場合＆文字数
+    if ($spot_name === '') {
+        $error['name'] = "blank";
+    }elseif(strlen($spot_name) > 30) {
+        $error['name'] = "over";
+    }
+    // 場所が入力されていない場合＆文字数
+    if ($spot_place === '') {
+        $error['place'] = "blank";
+    }elseif(strlen($spot_name) > 100) {
+        $error['place'] = "over";
+    }
+    // 日付が入力されていない場合＆文字数
+    if ($spot_date === '') {
+        $error['date'] = "blank";
+    }elseif(strlen($spot_date) > 100) {
+        $error['date'] = "over";
+    }
+    // 日付が入力されていない場合＆文字数
+    if ($spot_thought === '') {
+        $error['thought'] = "blank";
+    }elseif(strlen($spot_thought) > 200) {
+        $error['thought'] = "over";
+    }
     // 画像ファイル(spot_image)の中身のデータを取得
     $filename = basename($spot_image['name']);
     $tmp_path = $spot_image['tmp_name'];
     $file_err = $spot_image['error'];
     $filesize = $spot_image['size'];
     // base64エンコード化して$img_srcに格納
-    $file_img = $_FILES['spot_image']['tmp_name'];
-    $img_data = base64_encode(file_get_contents($file_img));
-    $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
+    if (isset($_FILES['spot_image']['tmp_name'])) {
+        $file_img = $_FILES['spot_image']['tmp_name'];
+        $img_data = base64_encode(file_get_contents($file_img));
+        $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
+    }else {
+        $error['no-picture'] = "empty";
+    }
     // アップロードするディレクトを決める
     $upload_dir = '/tmp';
     // ファイル名に日付を含める
@@ -37,8 +68,7 @@ if (isset($_POST['ok']))
     // ファイルのバリデーション
     // ファイルサイズが5MB未満か
     if($filesize > 5242880 || $file_err == 2){
-        echo 'ファイルサイズは5MB未満にしてください。';
-        echo "<br>";
+        $error['size-over'] = "over";
     }
     // 拡張子は画像形式か
     $check_ext = array('jpg', 'jpeg', 'png');
@@ -46,8 +76,7 @@ if (isset($_POST['ok']))
     // 拡張子を小文字に変換しファイルチェック
     if(!in_array(strtolower($get_ext), $check_ext))
     {
-        echo '画像ファイルを添付してください。';
-        echo "<br>";
+        $error['no-picture'] = "empty"; 
     }
     if(is_uploaded_file($tmp_path)) 
     {
@@ -72,10 +101,7 @@ if (isset($_POST['ok']))
             // ホーム画面に遷移
             header('Location: home.php');
             exit;
-            }
-        
-    }else{
-        echo 'エラーです。';
+            }       
     }
 }
 ?>
@@ -98,14 +124,44 @@ if (isset($_POST['ok']))
             </ul>
         </div>
         <!-- Myページ作成画面 -->
-        <div class="create-page text-center">
+        <div class="create-page">
             <form action="" method="post" enctype="multipart/form-data">
                 <h1>Myページ作成</h1>
-                <input type="text" class="place" name="spot_name" placeholder="お気に入りスポット名" required>
-                <input type="text" class="place" name="spot_place" placeholder="どこにありましたか？" required>
-                <input type="text" class="place" name="spot_date" placeholder="いつ行きましたか？" required>
+                <input type="text" class="place" name="spot_name" placeholder="お気に入りスポット名">
+                    <?php if((!empty($error['name']) && $error['name'] === "blank")) :?>
+                        <p class="error">スポット名を入力してください。</p>
+                    <?php endif ;?>
+                    <?php if((!empty($error['name']) && $error['name'] === "over")) :?>
+                        <p class="error">30文字以内で入力してください。</p>
+                    <?php endif ;?>
+                <input type="text" class="place" name="spot_place" placeholder="どこにありましたか？">
+                    <?php if((!empty($error['place']) && $error['place'] === "blank")) :?>
+                        <p class="error">場所を入力してください。</p>
+                    <?php endif ;?>
+                    <?php if((!empty($error['place']) && $error['place'] === "over")) :?>
+                        <p class="error">100文字以内で入力してください。</p>
+                    <?php endif ;?>
+                <input type="text" class="place" name="spot_date" placeholder="いつ行きましたか？">
+                    <?php if((!empty($error['date']) && $error['date'] === "blank")) :?>
+                        <p class="error">日付を入力してください。</p>
+                    <?php endif ;?>
+                    <?php if((!empty($error['date']) && $error['date'] === "over")) :?>
+                        <p class="error">20文字以内で入力してください。</p>
+                    <?php endif ;?>
                 <input type="file" class="place" name="spot_image" placeholder="写真はありますか？" accept="img/img-up/*" >
-                <input type="text" class="place" name="spot_thought" placeholder="どんな感じでしたか？" required>
+                    <?php if((!empty($error['no-picture']) && $error['no-picture'] === "empty")) :?>
+                        <p class="error">画像ファイルを添付してください。</p>
+                    <?php endif ;?>
+                    <?php if((!empty($error['size-over']) && $error['size-over'] === "over")) :?>
+                        <p class="error">ファイルサイズは5MB未満にしてください。</p>
+                    <?php endif ;?>
+                <input type="text" class="place" name="spot_thought" placeholder="感想をどうぞ" >
+                    <?php if((!empty($error['thought']) && $error['thought'] === "blank")) :?>
+                            <p class="error">感想を入力してください。</p>
+                    <?php endif ;?>
+                    <?php if((!empty($error['thought']) && $error['thought'] === "over")) :?>
+                            <p class="error">200文字以内で入力してください。</p>
+                    <?php endif ;?>
                 <button type="submit" name="ok">完成!!</button>
             </form>
         </div>

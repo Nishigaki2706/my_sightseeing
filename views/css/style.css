@@ -490,6 +490,13 @@ header nav .menu:hover{
     font-size: 1rem;
 }
 
+.create-page form .error {
+    color: red;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 12px;
+}
 /* ログアウト画面 */
 
 .logout{
