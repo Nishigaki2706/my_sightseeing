@@ -13,7 +13,7 @@ if (!$session_user) {
 }
 if (isset($_POST['withdrawal'])) {
     // DB接続
-    include_once 'dbconect.php';
+    include_once 'dbconnect.php';
     
     // ディレクトリのファイル削除
     // SQL文セット

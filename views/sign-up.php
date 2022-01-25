@@ -54,7 +54,7 @@ if (isset($_POST["sign-up"]))
         $error['email'] = 'duplicate';
     }else{
     // DB接続
-    include_once 'dbconect.php';
+    include_once 'dbconnect.php';
     // SQL文セット
     $query = $pdo->prepare("INSERT INTO users(name, email ,password) VALUES (:name, :email, :password)");
     // プレイスホルダーの値セット

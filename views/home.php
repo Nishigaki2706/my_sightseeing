@@ -13,14 +13,14 @@ if (!$session_user) {
 }
 // usersテーブルとmypageテーブルを結合
 // DB接続
-include_once 'dbconect.php';
+include_once 'dbconnect.php';
 // SQL文セット
 $spot_register = $pdo->prepare("SELECT * FROM users U INNER JOIN mypage M ON U.user_id = M.user_id");
 // SQL実行
 $spot_register->execute();
 // user_idから投稿内容を取得
 // DB接続
-include_once 'dbconect.php';
+include_once 'dbconnect.php';
 // SQL文セット
 $spot_register = $pdo->prepare("SELECT * FROM mypage WHERE user_id = :user_id");
 // プレースホルダーに値セット

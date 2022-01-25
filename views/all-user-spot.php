@@ -13,7 +13,7 @@ if (!$session_user) {
 }
 // usersテーブルとmypageテーブルを結合
 // DB接続
-include_once 'dbconect.php';
+include_once 'dbconnect.php';
 // SQL文セット
 $all_spot_register = $pdo->prepare("SELECT * FROM users U INNER JOIN mypage M ON U.user_id = M.user_id");
 // SQL実行

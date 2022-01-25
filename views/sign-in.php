@@ -18,7 +18,7 @@ if (isset($_POST["sign-in"]))
     // パスワードをハッシュ化
     $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
     // DB接続
-    include_once 'dbconect.php';
+    include_once 'dbconnect.php';
     // SQL文セット
     $query = $pdo->prepare("SELECT * FROM users WHERE email = :email");
     // プレースホルダーに値セット

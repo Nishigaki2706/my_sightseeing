@@ -81,7 +81,7 @@ if (isset($_POST['ok']))
     if(is_uploaded_file($tmp_path)) 
     {
         // DB接続
-        include_once 'dbconect.php';
+        include_once 'dbconnect.php';
         // SQL文セット
         $query = $pdo->prepare("INSERT INTO mypage(user_id, user_name, spot_name, spot_place, spot_date, file_name, spot_file_path, spot_dir_path, spot_thought)VALUES(:user_id, :user_name, :spot_name, :spot_place, :spot_date, :file_name, :spot_file_path, :spot_dir_path, :spot_thought)");
         // プレースホルダーに値セット
