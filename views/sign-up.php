@@ -37,6 +37,8 @@ if (isset($_POST["sign-up"]))
     } catch (PDOException $e) {
         $msg = $e->getMessage();
     }
+    var_dump($host,$name,$user,$password);
+    exit;
     // SQL文セット
     $query = $check_pdo->prepare("SELECT * FROM users WHERE email = :email");
     // プリペアドステートメントセット
