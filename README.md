@@ -4,7 +4,7 @@ my_sightseeing
 過去にWebサイト利用者が行った観光地を思い出として投稿し記録しておくポートフォリオです。
 
 ## デモ
-[Webサイトを見る](https://my-sightseeing-app.herokuapp.com/views/sign-in.php)
+[Webサイトを見る](https://mysightseeing.herokuapp.com/views/sign-in.php)
 
 ## 利用している技術
 HTML / CSS / PHP / JavaScript / MySQL
