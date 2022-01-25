@@ -4,7 +4,6 @@
 //////////////////////////////////
 // 設定を読み込む
 include_once '../config.php';
-ini_set("display_errors", 0);
 session_start();
 $session_user = $_SESSION['USER'];
 $session_name = $_SESSION['USER']['name'];
