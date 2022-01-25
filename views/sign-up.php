@@ -6,7 +6,7 @@ session_start();
 
 // 環境変数設定
 $host = getenv('DB_HOST');
-$name = getenv('DB_NAME');
+$dbname = getenv('DB_NAME');
 $password = getenv('DB_PASSWORD');
 $user = getenv('DB_USER');
 
@@ -33,12 +33,10 @@ if (isset($_POST["sign-up"]))
     // メールアドレス重複チェック
     try {
         // DB接続
-        $check_pdo = new PDO('mysql:dbname='. $name .';host='. $host .';' , $user , $password);
+        $check_pdo = new PDO('mysql:dbname='. $dbname .';host='. $host .';' , $user , $password);
     } catch (PDOException $e) {
         $msg = $e->getMessage();
-    }
-    var_dump($host,$name,$user,$password);
-    exit;
+    
     // SQL文セット
     $query = $check_pdo->prepare("SELECT * FROM users WHERE email = :email");
     // プリペアドステートメントセット
