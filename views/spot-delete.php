@@ -22,7 +22,7 @@ $dir_delete->execute();
 // 削除したいデータ取得
 $dir_delete_result = $dir_delete->fetch();
 // 削除したいディレクトリファイルを削除
-unlink($dir_delete_result['spot_dir_path']);
+// unlink($dir_delete_result['spot_dir_path']);
 
 // 対象のレコードを削除
 // SQL文セット
