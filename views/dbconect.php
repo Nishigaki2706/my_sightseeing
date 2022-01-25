@@ -11,3 +11,4 @@ try {
 } catch (PDOException $e) {
     $msg = $e->getMessage();
 }
+var_dump($pdo);
