@@ -98,9 +98,9 @@ if (isset($_POST['ok']))
         $result = $query->execute();
             if ($result === true) 
             {
-            // // ホーム画面に遷移
-            // header('Location: home.php');
-            // exit;
+            // ホーム画面に遷移
+            header('Location: home.php');
+            exit;
             }       
     }
 }
