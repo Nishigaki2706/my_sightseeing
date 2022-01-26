@@ -12,10 +12,13 @@ my_sightseeing
 1.下記のリンクをクリックしていただきメールアドレス：taro@jp パスワード：password1を入力します。
 2.メールアドレス、パスワードを入力するとホーム画面に遷移し、利用者が過去に行った旅行先の思い出をアップ、編集、全てのユーザーの投稿を見ることができます。
 
+## システム構造図
+![スクリーンショット 2022-01-26 153216](https://user-images.githubusercontent.com/78339698/151114642-4750f8b6-87ed-4a57-bac2-33a88d4cc5ef.png)
 ## デモ
 [Webサイトを見る](https://mysightseeing.herokuapp.com/views/sign-in.php)
 ![スクリーンショット 2022-01-26 150628](https://user-images.githubusercontent.com/78339698/151112166-e6da8e32-aa83-4730-b61b-0d3cad3227b2.png)
 ![スクリーンショット 2022-01-26 150809](https://user-images.githubusercontent.com/78339698/151112272-cb2de636-dc72-4a9a-bbdc-df8d0bf397ee.png)
+
 
 ## 利用している技術
 HTML / CSS / PHP / JavaScript / MySQL
