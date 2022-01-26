@@ -52,13 +52,13 @@ if (isset($_POST['ok']))
     $file_err = $spot_image['error'];
     $filesize = $spot_image['size'];
     // base64エンコード化して$img_srcに格納
-    // if ( !$_FILES['spot_image']['tmp_name'] ) {
+    if ( !$_FILES['spot_image']['tmp_name'] ) {
         $file_img = $_FILES['spot_image']['tmp_name'];
         $img_data = base64_encode(file_get_contents($file_img));
         $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
-    //}else {
-    //   $error['no-picture'] = "empty";
-    //}
+    }else {
+        $error['no-picture'] = "empty";
+    }
     // アップロードするディレクトを決める
     $upload_dir = '/tmp';
     // ファイル名に日付を含める
@@ -98,9 +98,9 @@ if (isset($_POST['ok']))
         $result = $query->execute();
             if ($result === true) 
             {
-            // ホーム画面に遷移
-            header('Location: home.php');
-            exit;
+            // // ホーム画面に遷移
+            // header('Location: home.php');
+            // exit;
             }       
     }
 }
