@@ -66,7 +66,7 @@ if (isset($_POST['ok']))
     $file_err = $spot_image['error'];
     $filesize = $spot_image['size'];
     // base64エンコード化して$img_srcに格納
-    if ( !$_FILES['spot_image']['tmp_name'] ) {
+    if ( $_FILES['spot_image']['tmp_name'] ) {
         $file_img = $_FILES['spot_image']['tmp_name'];
         $img_data = base64_encode(file_get_contents($file_img));
         $img_src = 'data: ' . mime_content_type($file_img) . ';base64,' . $img_data;
