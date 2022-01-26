@@ -15,6 +15,10 @@ my_sightseeing
 ## デモ
 [Webサイトを見る](https://mysightseeing.herokuapp.com/views/sign-in.php)
 
+## スクリーンショット
+![スクリーンショット 2022-01-26 150628](https://user-images.githubusercontent.com/78339698/151112166-e6da8e32-aa83-4730-b61b-0d3cad3227b2.png)
+![スクリーンショット 2022-01-26 150809](https://user-images.githubusercontent.com/78339698/151112272-cb2de636-dc72-4a9a-bbdc-df8d0bf397ee.png)
+
 ## 利用している技術
 HTML / CSS / PHP / JavaScript / MySQL
 
